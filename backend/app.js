@@ -29,6 +29,20 @@ app.post("/api/stuff", (req, res, next) => {
     .catch(() => res.status(400).json({ error }));
 });
 
+//Modification info sur un objet
+app.put("/api/stuff/:id", (req, res, next) =>{
+    Thing.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id})
+    .then(() => res.status(200).json({ message: "Objet modifé !"}))
+    .catch(() => res.status(400).json({ error }));
+});
+
+//Suppression d'un objet
+app.delete("/api/stuff/:id", (req, res, next) => {
+    Thing.deleteOne({ _id: req.params.id})
+    .then(() => res.status(200).json({ message: "Objet supprimé !" }))
+    .catch(() => res.status(400).json({ error }));
+});
+
 //Envoie d'une annonce en fonction de son id
 app.get("/api/stuff/:id", (req, res, next) => {
     Thing.findOne({ _id: req.params.id })
