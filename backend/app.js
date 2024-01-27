@@ -29,3 +29,7 @@ module.exports = app;
 // database acces:
 // laflosh
 // GxE2jkt4DqAmwqDkLKkh
+
+// compte test:
+// flo@test.com
+// fgdk25
