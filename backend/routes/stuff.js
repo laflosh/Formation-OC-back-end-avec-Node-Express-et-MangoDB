@@ -9,7 +9,7 @@ const stuffCtrl = require("../controllers/stuff");
 router.post("/", auth, multer, stuffCtrl.createThing);
 
 //Modification info sur un objet
-router.put("/:id", auth, stuffCtrl.modifyThing);
+router.put("/:id", auth, multer, stuffCtrl.modifyThing);
 
 //Suppression d'un objet
 router.delete("/:id", auth, stuffCtrl.deleteThing);
