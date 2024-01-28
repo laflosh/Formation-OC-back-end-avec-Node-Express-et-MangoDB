@@ -1,11 +1,12 @@
 const express = require("express");
 const router =express.Router();
 const auth = require("../middleware/auth");
+const multer = require("../middleware/multer-config");
 
 const stuffCtrl = require("../controllers/stuff");
 
 //Création d'une annonce
-router.post("/", auth, stuffCtrl.createThing);
+router.post("/", auth, multer, stuffCtrl.createThing);
 
 //Modification info sur un objet
 router.put("/:id", auth, stuffCtrl.modifyThing);
